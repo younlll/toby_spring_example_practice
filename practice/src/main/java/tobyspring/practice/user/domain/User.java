@@ -1,32 +1,31 @@
 package tobyspring.practice.user.domain;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
 public class User {
-    public static void main(String[] args) {
-        Connection c = null;
+    String id;
+    String name;
+    String password;
 
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            System.err.println("JDBC 드라이버를 로드하는데 문제 발생" + e.getMessage());
-            e.printStackTrace();
-        }
+    public String getId() {
+        return id;
+    }
 
-        try {
-            c = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "root");
-            System.out.println("연결 완료!!!");
-        } catch (SQLException e) {
-            System.out.println("연결 오류" + e.getMessage());
-            e.printStackTrace();
-        }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-        try {
-            if(c != null) {
-                c.close();
-            }
-        } catch (SQLException e) {}
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
